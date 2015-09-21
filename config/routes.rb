@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :arts do
-    resources :comments
-  end
-
+  devise_for :admin_users
+  mount RailsAdmin::Engine => '/admin_user', as: 'rails_admin'
+  
   resources :pictures
   resources :locs
   resources :arts
