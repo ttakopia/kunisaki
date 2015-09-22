@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<section class="port">
 <p>
   <h3><%= @picture.name %></h3>
 </p><hr>
@@ -9,8 +10,12 @@
 
 <div class="boxB">
 <%= image_tag @picture.photo.url(:medium) %></div>
+<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
+<div class="boxC">
+<%= image_tag @picture.photo.url(:medium) %></div>
 
-
+</section>
   
   
    <!--- Modelのstyleで指定した :midium など渡すことでサイズを指定できる -->

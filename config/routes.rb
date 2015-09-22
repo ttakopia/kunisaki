@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'map/index'
+
+  resources :users
   devise_for :admin_users
   mount RailsAdmin::Engine => '/admin_user', as: 'rails_admin'
   
