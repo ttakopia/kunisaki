@@ -19,7 +19,7 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'rails_admin'
 gem 'devise'
-
+gem "jquery-fileupload-rails"
 # Google map
 gem 'gmaps4rails'
 gem 'geocoder'
