@@ -3,7 +3,7 @@
 	</div>
 
 	<div id="content">
-		<h1>国東半島などを紹介します</h1>
+		<h1>国東半島を紹介します</h1>
 		<p>　初めてのホームページ です。
 			　これから、国東半島などを紹介していきたいと思います。
 			  写真は、大分県国東市国見町の千燈岳（６０５ｍ）の山頂から見た両子山（右）と文殊山（左）です。
@@ -11,13 +11,28 @@
 			　このホームページを作るきっかけになったのも、Yさんに感化してからです。これから、楽しんでやっていきたいと思いますので、よろしくお願いします。
 			 
 			　ご感想などありましたら、掲示板でお願いします。</p>
+			
+            
+            <section class="port">
 
-			<button type="button" class="btn btn-default">グルメ</button>
 
-			<button type="button" class="btn btn-default">観光</button>
+            <article>
+			<%= image_tag "gurume.jpg", :size => '250x150' %>
+			<h3>グルメ</h3>
+			<p>ここではグルメ情報を紹介します。</p>
+			</article>
 
-			<button type="button" class="btn btn-default">イベント</button>
+            <article>
+			<%= image_tag "akahane.jpg", :size => '250x150' %>
+			<h3>観光スポット</h3>
+			<p>ここでは観光スポットを紹介します。</p>
+			</article>
 
-			<button type="button" class="btn btn-default">秘蔵スポット</button>
-
-	</div>
+			 <article>
+			<%= image_tag "ibe.jpg", :size => '250x150' %>
+			<h3>イベント</h3>
+			<p>ここではイベント情報を紹介します。</p>
+			</article>
+			
+			</section>
+</div>

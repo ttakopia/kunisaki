@@ -59,14 +59,17 @@
       </div>
     </div>
 
-    <div class="container">
+   <div class="container">
       <div class="row">
         <div class="col-lg-9">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
+
         <div class="col-lg-3">
           <div class="well sidebar-nav">
+<%
+=begin %>
             <h3>Sidebar</h3>
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
@@ -74,9 +77,13 @@
               <li><%= link_to "広告", "/path2"  %></li>
               <li><%= link_to "広告", "/path3"  %></li>
             </ul>
+<%
+=end 
+%>
           </div><!--/.well -->
         </div><!--/span-->
       </div><!--/row-->
+
 
       <footer>
         <p>&copy; 2015 Kihara Shohei</p>
