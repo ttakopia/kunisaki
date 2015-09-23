@@ -1,11 +1,11 @@
 class MapController < ApplicationController
   def index
-    @users = User.all
-    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
-      marker.infowindow user.description
-      marker.json({title: user.title})
+    @pictures = Picture.all
+    @hash = Gmaps4rails.build_markers(@pictures) do |picture, marker|
+      marker.lat picture.latitude
+      marker.lng picture.longitude
+      marker.infowindow picture.description
+      marker.json({title: picture.title})
     end
   end
 end

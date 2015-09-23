@@ -22,7 +22,17 @@
   <div class="field">
     <%= f.file_field :photo %>
   </div>
+   
+   <div class="field">
+    <%= f.label :タイトル %><br>
+    <%= f.text_field :title %>
+  </div>
+   <div class="field">
+    <%= f.label :住所 %><br>
+    <%= f.text_field :address %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "そいや"%>
   </div>
 <% end %>

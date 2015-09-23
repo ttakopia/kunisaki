@@ -35,14 +35,14 @@ ActiveRecord::Schema.define(version: 20150922063812) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "locs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "pictures", force: :cascade do |t|
     t.string   "name"
     t.string   "content"
+    t.string   "title"
+    t.string   "description"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"

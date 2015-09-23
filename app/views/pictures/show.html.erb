@@ -6,14 +6,29 @@
 </p><hr>
 
 <div class="boxA">
+<p><button type="button" class="btn btn-info">Content</button><p>
 <%= simple_format @picture.content %></div>
 
 <div class="boxB">
-<%= image_tag @picture.photo.url(:medium) %></div>
-<br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br>
+<p><button type="button" class="btn btn-warning">Place</button><p>
+<h6>住所：<%= @picture.address %></h6>
+<div style='width: 400px;'>
+  <div id="map" style='width: 400px; height: 200px;'></div>
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+</script>
+</div>
+</div>
+
 <div class="boxC">
+<p><button type="button" class="btn btn-i">Picture</button><p>
 <%= image_tag @picture.photo.url(:medium) %></div>
+
 
 </section>
   

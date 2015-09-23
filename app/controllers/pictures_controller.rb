@@ -10,6 +10,13 @@ class PicturesController < ApplicationController
   # GET /pictures/1
   # GET /pictures/1.json
   def show
+    @pictures = Picture.all
+    @hash = Gmaps4rails.build_markers(@pictures) do |picture, marker|
+      marker.lat picture.latitude
+      marker.lng picture.longitude
+      marker.infowindow picture.description
+      marker.json({title: picture.title})
+    end
   end
 
   # GET /pictures/new
@@ -69,6 +76,6 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:name, :photo, :content)
+      params.require(:picture).permit(:name, :photo, :content, :title, :address, :latitude, :longitude)
     end
 end
