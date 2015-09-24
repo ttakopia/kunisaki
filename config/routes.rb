@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-  get 'map/index'
 
   resources :users
   devise_for :admin_users
   mount RailsAdmin::Engine => '/admin_user', as: 'rails_admin'
   
+  resources :users
   resources :pictures
   resources :locs
   resources :arts
 
   root :to => 'pages#about'
-
+  get '/signup', to: 'users#new'  
   get '/about', to: 'pages#about'
   get '/blog', to: 'arts#index'
   get '/picture', to: 'pictures#index'
