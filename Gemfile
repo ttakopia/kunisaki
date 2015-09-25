@@ -23,6 +23,7 @@ gem "jquery-fileupload-rails"
 # Google map
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'bcrypt-ruby', '3.1.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
