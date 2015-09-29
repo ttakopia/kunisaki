@@ -20,6 +20,9 @@ gem 'twitter-bootstrap-rails'
 gem 'rails_admin'
 gem 'devise'
 gem "jquery-fileupload-rails"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 # Google map
 gem 'gmaps4rails'
 gem 'geocoder'
