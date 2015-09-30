@@ -10,7 +10,8 @@ class PicturesController < ApplicationController
   # GET /pictures/1
   # GET /pictures/1.json
   def show
-    @pictures = Picture.all
+    @picture = Picture.find(params[:id])
+    @user = Picture.find(params[:id]).users.create
     @hash = Gmaps4rails.build_markers(@pictures) do |picture, marker|
       marker.lat picture.latitude
       marker.lng picture.longitude

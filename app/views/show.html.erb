@@ -1,0 +1,12 @@
+<h2>コメント</h2>
+<% @picture.users.each do |users| %>
+  <p>
+    <strong>投稿者:</strong>
+    <%= user.commenter %>
+  </p>
+
+  <p>
+    <strong>コメント:</strong>
+    <%= user.body %>
+  </p>
+<% end %>

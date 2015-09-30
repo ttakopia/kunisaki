@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   devise_for :admin_users
   mount RailsAdmin::Engine => '/admin_user', as: 'rails_admin'
   
+  resources :pictures do
+    resources :users
+  end
+  
   resources :pictures
   resources :locs
   resources :arts

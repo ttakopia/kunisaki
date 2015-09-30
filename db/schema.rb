@@ -62,6 +62,9 @@ ActiveRecord::Schema.define(version: 20150928124134) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "picture_id"
+    t.string   "commenter"
+    t.text     "body"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "uid"
@@ -70,6 +73,7 @@ ActiveRecord::Schema.define(version: 20150928124134) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["picture_id"], name: "index_users_on_picture_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
