@@ -1,0 +1,12 @@
+<p><h4>【地図】<h4></p>
+<div style='width: 400px;'>
+  <div id="map" style='width: 400px; height: 200px;'></div>
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+</script>
+</div>

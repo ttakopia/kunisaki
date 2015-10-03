@@ -12,13 +12,56 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :スポット %><br>
+    <%= f.label :タイトル %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :説明 %><br>
-    <%= f.text_area :content , rows: 10, cols: 20 %>
+    <%= f.text_area :content , rows: 5, cols: 50 %>
   </div>
+
+    <div class="field">
+    <%= f.label :住所 %><br>
+    <%= f.text_field :address %>
+  </div>
+    <div class="field">
+    <%= f.label :アクセス %><br>
+    <%= f.text_field :access %>
+  </div>
+    <div class="field">
+    <%= f.label :営業時間 %><br>
+    <%= f.text_field :worktime %>
+  </div>
+   <div class="field">
+    <%= f.label :休業日 %><br>
+    <%= f.text_field :rest %>
+  </div>
+   <div class="field">
+    <%= f.label :料金 %><br>
+    <%= f.text_field :fee %>
+  </div>
+   <div class="field">
+    <%= f.label :カード利用 %><br>
+    <%= f.text_field :credit %>
+  </div>
+   <div class="field">
+    <%= f.label :駐車場 %><br>
+    <%= f.text_field :parking %>
+  </div>
+  <div class="field">
+    <%= f.label :駐車台数 %><br>
+    <%= f.text_field :parkingnumber %>
+  </div>
+  <div class="field">
+    <%= f.label :駐車料金 %><br>
+    <%= f.text_field :parkingfee %>
+  </div>
+  <div class="field">
+    <%= f.label :電話番号 %><br>
+    <%= f.text_field :phonenumber %>
+  </div>
+
+
   <div class="field">
     <%= f.file_field :photo %>
   </div>
@@ -27,10 +70,7 @@
     <%= f.label :タイトル %><br>
     <%= f.text_field :title %>
   </div>
-   <div class="field">
-    <%= f.label :住所 %><br>
-    <%= f.text_field :address %>
-  </div>
+  
 
   <div class="actions">
     <%= f.submit "そいや"%>

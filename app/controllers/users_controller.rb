@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def create
     @picture = Picture.find(params[:picture_id])
-    @user = @picture.users.create(user_params)
+    @user = @picture.users.build(user_params)
     redirect_to picture_path(@picture)
   end
 

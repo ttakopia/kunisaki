@@ -2,55 +2,44 @@
 
 <section class="port">
 <p>
-  <h3><%= @picture.name %></h3>
-</p><hr>
+  <h3><%= @picture.name %></h3><hr>
+</p>
+<p><%= simple_format @picture.content %></p><hr>
 
 <div class="boxA">
-<p><button type="button" class="btn btn-info">Content</button><p>
-<%= simple_format @picture.content %></div>
+<%= render 'address' %>
+</div>
 
 <div class="boxB">
-<p><button type="button" class="btn btn-warning">Place</button><p>
-<h6>住所：<%= @picture.address %></h6>
-<div style='width: 400px;'>
-  <div id="map" style='width: 400px; height: 200px;'></div>
-<script type="text/javascript">
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(<%=raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-    });
-</script>
-</div>
+<%= render 'map' %>
 </div>
 
 <div class="boxC">
-<p><button type="button" class="btn btn-i">Picture</button><p>
+<p><h4>【写真】<h4></p>
 <%= image_tag @picture.photo.url(:medium) %></div>
 </section>
 
 <br><br><br><br><br><br><br><br><br>
 
 <h2>コメント一覧</h2>
-<%= @picture.users.each do |user| %>
+<% @picture.users.each do |user| %>
   <div>
     <strong><%= user.commenter %></strong>
-    <br />
     <p><%= user.body %></p>
   </div>
+</div>
 <% end %>
 
 
-<br><br><br><br><br><br><br><br><br>
-<h4>コメントする</h4>
+<br>
+
 <%= form_for([@picture, @picture.users.build]) do |f| %>
   <p>
-    <%= f.label :コメンテター %><br>
+    <%= f.label :commenter %><br>
     <%= f.text_field :commenter %>
   </p>
   <p>
-    <%= f.label :内容 %><br>
+    <%= f.label :body %><br>
     <%= f.text_area :body %>
   </p>
   <p>
@@ -62,8 +51,6 @@
   
    <!--- Modelのstyleで指定した :midium など渡すことでサイズを指定できる -->
 
-<br><br><br><br><br>
-<br><br><br><br><br>
 <br><br><br><br><br>
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>

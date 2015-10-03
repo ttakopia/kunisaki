@@ -2,12 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .port {
-	width: 800px;
 	margin-top: 40px;
+	margin-left: 40px;
 	margin-bottom: 40px;
+	max-width : 100% ;
 }
 
-.boxA { width:400px;height:100px;float:left; }  
-.boxB { width:400px;height:100px;float:left;padding-bottom: 300px; } 
-.boxC { width:400px;height:100px;float:left; }   
+.port:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+.boxA { 
+	width:400px;
+	float:left;
+    overflow:auto;}
+
+
+.boxB { 
+	width:400px;
+	float:left;
+	padding-left: 40px;
+	margin-bottom: 180px;
+ }    
+
+
+.boxC { 
+	width:400px;
+	float:left;
+ }    
+

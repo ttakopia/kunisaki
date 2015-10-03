@@ -1,0 +1,42 @@
+// Landscape phones and down
+  @media (max-width: 480px) { ... }
+ 
+  // Landscape phone to portrait tablet
+  @media (max-width: 768px) { 
+　　.title{
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .panel{
+        /* 最大を300pxに固定する */
+        width: 320px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    #footer .navbar-nav{
+        /* footer menuのトータル幅を調整 */
+        width: 340px;
+    }
+
+    #footer .navbar-nav>li{
+        /* メニュー幅を小さく*/
+        width: 60px;
+        font-size: 10px;
+    }
+
+    .carousel-caption > h3{
+        visibility: hidden;
+    }
+
+    .carousel-caption > p{
+        visibility: hidden;
+    }
+  }
+ 
+  // Portrait tablet to landscape and desktop
+  @media (min-width: 768px) and (max-width: 980px) { ... }
+ 
+  // Large desktop
+  @media (min-width: 1200px) { .. }

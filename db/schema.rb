@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 20150928124134) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "access"
+    t.string   "worktime"
+    t.string   "rest"
+    t.string   "fee"
+    t.string   "credit"
+    t.string   "parking"
+    t.string   "parkingnumber"
+    t.string   "parkingfee"
+    t.string   "phonenumber"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"
