@@ -1,10 +1,8 @@
 class Picture < ActiveRecord::Base
   has_many :users
-# photoをattachファイルとする。stylesで画像サイズを定義できる
-  has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }
-
-  # ファイルの拡張子を指定（これがないとエラーが発生する）
-  validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+  has_many :assets
+  accepts_nested_attributes_for :assets, :allow_destroy => true
+   # ファイルの拡張子を指定（これがないとエラーが発生する）
   geocoded_by :address
   after_validation :geocode
 end

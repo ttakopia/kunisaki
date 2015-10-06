@@ -27,6 +27,7 @@ gem 'omniauth-twitter'
 gem 'gmaps4rails'
 gem 'geocoder'
 gem 'bcrypt-ruby', '3.1.2'
+gem 'nested_form'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -1,4 +1,4 @@
-<%= form_for(@picture) do |f| %>
+<%= nested_form_for(@picture) do |f| %>
   <% if @picture.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
@@ -59,12 +59,27 @@
   <div class="field">
     <%= f.label :電話番号 %><br>
     <%= f.text_field :phonenumber %>
+
   </div>
 
-
-  <div class="field">
-    <%= f.file_field :photo %>
+  <h4>File Upload</h4>
+　<div class="field">
+  <%= f.fields_for :assets do |asset_fields| %>
+      <p><%= asset_fields.file_field :image %></p>
   </div>
+  <% end %>
+
+  <h4>Show Old Images</h4>
+  
+  <%= f.fields_for :assets do |asset_fields| %>
+
+    <% unless asset_fields.object.new_record? %>
+      <%= link_to image_tag(asset_fields.object.image.url(:thumb)), 
+                  asset_fields.object.image.url(:original) %>
+
+    <% end %>
+  <% end %>
+  
    
    <div class="field">
     <%= f.label :タイトル %><br>

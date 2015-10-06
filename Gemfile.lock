@@ -253,6 +253,7 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   less-rails
+  nested_form
   omniauth
   omniauth-facebook
   omniauth-twitter

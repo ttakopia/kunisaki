@@ -23,10 +23,12 @@ class PicturesController < ApplicationController
   # GET /pictures/new
   def new
     @picture = Picture.new
+    5.times { @picture.assets.build }
   end
 
   # GET /pictures/1/edit
   def edit
+    5.times { @picture.assets.build }
   end
 
   # POST /pictures
@@ -79,6 +81,7 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:name, :photo, :content, :title, :address, :latitude, :longitude,
                                       :access, :worktime, :rest, :fee, :credit, :parking, :parkingnumber,
-                                      :parkingfee, :phonenumber)
+                                      :parkingfee, :phonenumber, :image, :commneter, :body,
+                                      assets_attributes: [:image])
     end
 end

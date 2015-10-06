@@ -16,8 +16,15 @@
 
 <div class="boxC">
 <p><h4>【写真】<h4></p>
-<%= image_tag @picture.photo.url(:medium) %></div>
+<ul>
+  <% for asset in @picture.assets %>
+    <%= link_to image_tag(asset.image.url(:thumb)), asset.image.url(:original) %>
+  <% end %>
+</ul>
 </section>
+
+
+
 
 <br><br><br><br><br><br><br><br><br>
 
@@ -27,7 +34,6 @@
     <strong><%= user.commenter %></strong>
     <p><%= user.body %></p>
   </div>
-</div>
 <% end %>
 
 
