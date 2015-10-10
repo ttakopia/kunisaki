@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin_user', as: 'rails_admin'
   
   resources :pictures do
-    resources :users
+    resources :comments
   end
   
   resources :pictures

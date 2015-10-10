@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005120007) do
+ActiveRecord::Schema.define(version: 20151007115907) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",               default: "", null: false
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 20151005120007) do
 
   add_index "assets", ["picture_id"], name: "index_assets_on_picture_id"
 
+  create_table "comments", force: :cascade do |t|
+    t.integer  "picture_id"
+    t.string   "commenter"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["picture_id"], name: "index_comments_on_picture_id"
+
   create_table "pictures", force: :cascade do |t|
     t.string   "name"
     t.string   "content"
@@ -64,12 +74,8 @@ ActiveRecord::Schema.define(version: 20151005120007) do
     t.string   "parkingnumber"
     t.string   "parkingfee"
     t.string   "phonenumber"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|

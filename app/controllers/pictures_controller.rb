@@ -11,7 +11,7 @@ class PicturesController < ApplicationController
   # GET /pictures/1.json
   def show
     @picture = Picture.find(params[:id])
-    @user = Picture.find(params[:id]).users.build
+    @comment = Picture.find(params[:id]).comments.build
     @hash = Gmaps4rails.build_markers(@pictures) do |picture, marker|
       marker.lat picture.latitude
       marker.lng picture.longitude
@@ -23,12 +23,12 @@ class PicturesController < ApplicationController
   # GET /pictures/new
   def new
     @picture = Picture.new
-    5.times { @picture.assets.build }
+    @picture.assets.build
   end
 
   # GET /pictures/1/edit
   def edit
-    5.times { @picture.assets.build }
+    @picture.assets.build
   end
 
   # POST /pictures
@@ -82,6 +82,6 @@ class PicturesController < ApplicationController
       params.require(:picture).permit(:name, :photo, :content, :title, :address, :latitude, :longitude,
                                       :access, :worktime, :rest, :fee, :credit, :parking, :parkingnumber,
                                       :parkingfee, :phonenumber, :image, :commneter, :body,
-                                      assets_attributes: [:image])
+                                      assets_attributes: [:image,], comments_attributes: [:commenter, :body])
     end
 end

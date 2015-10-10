@@ -26,32 +26,12 @@
 
 
 
+
+
 <br><br><br><br><br><br><br><br><br>
 
-<h2>コメント一覧</h2>
-<% @picture.users.each do |user| %>
-  <div>
-    <strong><%= user.commenter %></strong>
-    <p><%= user.body %></p>
-  </div>
-<% end %>
-
-
-<br>
-
-<%= form_for([@picture, @picture.users.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<br><br><br><br>
+<%= render "comments/form" %>
 
   
   
@@ -59,4 +39,5 @@
 
 <br><br><br><br><br>
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
+<%= link_to "Destroy", @picture, :confirm => 'Are you sure?', :method => :delete %> |
 <%= link_to 'Back', pictures_path %>
