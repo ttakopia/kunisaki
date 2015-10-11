@@ -3,4 +3,5 @@ class Asset < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "640x480>", 
                                          :thumb => "100x100>"}
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+  do_not_validate_attachment_file_type :image
 end
