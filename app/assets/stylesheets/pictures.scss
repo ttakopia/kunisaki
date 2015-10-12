@@ -3,6 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.pict {
+	margin-bottom: 300px;
+	width: 40px;
+	font-size: 400px;
+}
+
+.pict img{
+	width:40px;
+	height: 40px;
+}
+
+
+
 .port {
 	margin-top: 40px;
 	margin-left: 40px;
@@ -35,3 +48,7 @@
 	float:left;
  }    
 
+.boxC a img{
+		width: 100px;
+		height: 100px;
+	}

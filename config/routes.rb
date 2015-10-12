@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   resources :pictures
   resources :locs
   resources :arts
+  resources :pictures do
+     resources :assets
+   end
 
   root :to => 'pages#about'
   

@@ -76,7 +76,9 @@
     <% unless asset_fields.object.new_record? %>
       <%= link_to image_tag(asset_fields.object.image.url(:thumb)), 
                   asset_fields.object.image.url(:original) %>
-
+     <div class="field">
+     <%= asset_fields.link_to_remove "Remove this" %>
+</div>
     <% end %>
   <% end %>
 

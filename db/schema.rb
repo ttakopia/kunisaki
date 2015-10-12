@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007115907) do
+ActiveRecord::Schema.define(version: 20151012074722) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",               default: "", null: false
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(version: 20151007115907) do
   end
 
   add_index "comments", ["picture_id"], name: "index_comments_on_picture_id"
+
+  create_table "destroys", force: :cascade do |t|
+    t.string   "garary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gararies", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "pictures", force: :cascade do |t|
     t.string   "name"

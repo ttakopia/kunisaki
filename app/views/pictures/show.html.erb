@@ -16,16 +16,17 @@
 
 <div class="boxC">
 <p><h4>【写真】<h4></p>
+
 <ul>
-  <% for asset in @picture.assets %>
-    <%= link_to image_tag(asset.image.url(:thumb)), asset.image.url(:original) %>
+    <% @picture.assets.each do |pic| %>
+     <a><%= image_tag pic.image.url %></a>
   <% end %>
 </ul>
+</div>
 </section>
 
 <br><br><br><br>
 <%= render "comments/form" %>
-
   
   
    <!--- Modelのstyleで指定した :midium など渡すことでサイズを指定できる -->

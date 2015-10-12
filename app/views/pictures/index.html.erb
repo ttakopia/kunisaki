@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h2>観光スポット</h2>
+<h2>グルメ</h2><h5>〜地元民ならではの情報を満載〜</h5>
 
 <table>
-  <tbody>
+  <tbody class="pict">
     <% @pictures.each do |picture| %>
-      <tr>
-        <td><h3>・<%= link_to picture.name,picture %><h3></td>
+        <div><hr><blockquote><a><%= image_tag picture.assets.first.image.url, size:"70x70" %></a>
+        <%= link_to picture.name,picture %></blockquote><div>
+        <%= link_to "Destroy", picture, :confirm => 'Are you sure?', :method => :delete %> 
+
 <%        
 =begin
 %>
@@ -16,7 +18,6 @@
 =end
 %>
 
-      </tr>
     <% end %>
   </tbody>
 </table>

@@ -4,29 +4,17 @@
 	</div>
 
 	<div id="content">
-		<h1>国東半島を紹介します</h1>
-		<p>　初めてのホームページ です。
-			　これから、国東半島などを紹介していきたいと思います。
-			  写真は、大分県国東市国見町の千燈岳（６０５ｍ）の山頂から見た両子山（右）と文殊山（左）です。
-			　恥ずかしながら、地元の目の前にあるのに初めてこのゴールデンウィークに登りました。きっかけは、近所のYさんから誘いでした。
-			　このホームページを作るきっかけになったのも、Yさんに感化してからです。これから、楽しんでやっていきたいと思いますので、よろしくお願いします。
-			 
-			　ご感想などありましたら、掲示板でお願いします。</p>
+		<h2>国東半島の「グルメ」「イベント」を教えます！</h2>
+		<p>facebookのグループは<%=link_to "こちらへ", "https://www.facebook.com/groups/1385820401710205/" %></p>
 			
             
             <section class="port">
 
 
             <article>
-			<%= image_tag "gurume.jpg", :size => '250x150' %>
-			<h3>グルメ</h3>
+			<%= image_tag "gurume-top.jpg", :size => '250x150' %>
+			<h3><%= link_to "グルメ", "/picture"  %></h3>
 			<p>ここではグルメ情報を紹介します。</p>
-			</article>
-
-            <article>
-			<%= image_tag "akahane.jpg", :size => '250x150' %>
-			<h3>観光スポット</h3>
-			<p>ここでは観光スポットを紹介します。</p>
 			</article>
 
 			 <article>
@@ -34,9 +22,9 @@
 			<h3>イベント</h3>
 			<p>ここではイベント情報を紹介します。</p>
 			</article>
-
-			<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-			
 			</section>
 </div>
 </div>
+
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %><br>
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
