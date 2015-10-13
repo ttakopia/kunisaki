@@ -8,4 +8,3 @@ class MapController < ApplicationController
       marker.json({title: picture.title})
     end
   end
-end
