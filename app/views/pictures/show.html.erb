@@ -20,6 +20,7 @@
 <ul>
     <% @picture.assets.each do |pic| %>
      <a><%= image_tag pic.image.url %></a>
+     <%= link_to "Destroy", [@picture, pic], :confirm => 'Are you sure?', :method => :delete %> 
   <% end %>
 </ul>
 </div>

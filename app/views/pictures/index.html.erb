@@ -5,8 +5,7 @@
 <table>
   <tbody class="pict">
     <% @pictures.each do |picture| %>
-        <div><hr><blockquote><a><%= image_tag picture.assets.first.image.url, size:"70x70" %></a>
-        <%= link_to picture.name,picture %></blockquote><div>
+        <div><hr><blockquote><%= image_tag picture.assets.first.image.url, size:"70x70" %><%= link_to picture.name,picture %></blockquote><div>
         <%= link_to "Destroy", picture, :confirm => 'Are you sure?', :method => :delete %> 
 
 <%        
