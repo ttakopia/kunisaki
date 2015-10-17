@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20151012074557) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+    t.boolean  "gmaps"
     t.string   "access"
     t.string   "worktime"
     t.string   "rest"

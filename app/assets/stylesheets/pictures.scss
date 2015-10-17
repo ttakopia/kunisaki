@@ -14,6 +14,11 @@
 	height: 40px;
 }
 
+.title {
+	background-color: #CCCCCC;
+
+}
+
 
 
 .port {
@@ -28,6 +33,20 @@
 	clear: both;
 	display: block;
 }
+.box0 { 
+	float:left;}
+
+.box0 sec {
+   max-width: 100%;
+   float: left;
+   margin-left: 100px;
+   overflow:auto;
+}
+
+.box0 sec:first-child {
+	margin-left: 0;
+}
+
 
 .boxA { 
 	width:400px;

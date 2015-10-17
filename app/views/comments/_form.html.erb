@@ -10,6 +10,7 @@
 <h4><コメント></h4>
 <ol>
 
+
 <% @picture.comments.each do |comment| %>
   <li><%= comment.created_at.present? ? comment.created_at.strftime("%Y/%m月/%d日(#{%w(日 月 火 水 木 金 土 日)[Time.now.wday]}) %T ") : comment.created_at %>
   <br><%= simple_format(comment.body) %>

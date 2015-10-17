@@ -10,13 +10,11 @@ class PicturesController < ApplicationController
   # GET /pictures/1
   # GET /pictures/1.json
   def show
-    @picture = Picture.find(params[:id])
     @comment = Picture.find(params[:id]).comments.build
+    @pictures = Picture.all
     @hash = Gmaps4rails.build_markers(@pictures) do |picture, marker|
       marker.lat picture.latitude
       marker.lng picture.longitude
-      marker.infowindow picture.description
-      marker.json({title: picture.title})
     end
   end
 

@@ -1,0 +1,16 @@
+<strong>オススメベスト３</strong><br><br>
+<div class="good3">
+<% @pictures.each do |picture| %>
+<% if picture.assets.present? %>
+    <sec>
+    <%= image_tag picture.assets.first.image.url, size:"200x150" %><br>
+    <a>コメント欄</a></sec>
+    <sec>
+	<%= image_tag picture.assets.second.image.url, size:"200x150" %><br>
+	<a>コメント欄</a></sec>
+	<sec>
+    <%= image_tag picture.assets.third.image.url, size:"200x150" %><br>
+    <a>コメント欄</a></sec>
+</div>
+<% end %>
+<% end %>

@@ -2,9 +2,17 @@
 
 <section class="port">
 <p>
-  <h3><%= @picture.name %></h3><hr>
+  <b class="title"><h3><%= @picture.name %></h3></b><hr>
 </p>
 <p><%= simple_format @picture.content %></p><hr>
+
+<div class="box0">
+<%= render 'good' %>
+</div>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+
+
 
 <div class="boxA">
 <%= render 'address' %>
@@ -14,9 +22,10 @@
 <%= render 'map' %>
 </div>
 
+<%        
+=begin
 <div class="boxC">
 <p><h4>【写真】<h4></p>
-
 <ul>
     <% @picture.assets.each do |pic| %>
      <a><%= image_tag pic.image.url %></a>
@@ -24,9 +33,13 @@
   <% end %>
 </ul>
 </div>
+<%
+=end
+%>
 </section>
 
-<br><br><br><br>
+
+<br><br><br>
 <%= render "comments/form" %>
   
   
