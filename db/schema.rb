@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012074557) do
+ActiveRecord::Schema.define(version: 20151018131109) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",               default: "", null: false
@@ -63,6 +63,30 @@ ActiveRecord::Schema.define(version: 20151012074557) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.date     "opendate"
+    t.string   "opendate_memo"
+    t.string   "postal"
+    t.string   "address"
+    t.string   "address_embed"
+    t.integer  "fee"
+    t.string   "limit"
+    t.string   "desc_short"
+    t.text     "desc_long"
+    t.binary   "picture_main"
+    t.binary   "picture_1"
+    t.binary   "picture_2"
+    t.binary   "picture_3"
+    t.string   "url"
+    t.string   "url_facebook"
+    t.string   "url_twitter"
+    t.boolean  "visible"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "pictures", force: :cascade do |t|
     t.string   "name"
     t.string   "content"
@@ -83,6 +107,18 @@ ActiveRecord::Schema.define(version: 20151012074557) do
     t.string   "phonenumber"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer  "event_id"
+    t.string   "short_desc"
+    t.text     "long_desc"
+    t.binary   "picture_1"
+    t.binary   "picture_2"
+    t.binary   "picture_3"
+    t.boolean  "visible"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

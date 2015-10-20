@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @report.event_id %>
+</p>
+
+<p>
+  <strong>Short desc:</strong>
+  <%= @report.short_desc %>
+</p>
+
+<p>
+  <strong>Long desc:</strong>
+  <%= @report.long_desc %>
+</p>
+
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Back', reports_path %>

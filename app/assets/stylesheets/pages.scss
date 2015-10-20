@@ -14,25 +14,36 @@ width: 800px;
 	width: 800px;
 }
 
-.port {
+.porta {
 	margin-top: 40px;
 	margin-bottom: 40px;
    max-width : 100% ;
 }
 
-.port:after {
+.porta article {
+   max-width : 100% ;
+   width: 275px;
+   float: left;
+   margin-left: 100px;
+   overflow:auto;
+}
+
+.portb {
+   margin-top: 40px;
+   margin-bottom: 40px;
+   max-width : 100% ;
+}
+
+.portb article {
+   max-width : 100% ;
+   width: 275px;
+   float: left;
+   margin-left: 100px;
+   overflow:auto;
+}
+
+.portb:after {
    content: "";
    clear: both;
    display: -webkit-flex;
-}
-
-.port article {
-   max-width : 100% ;
-   width: 250px;
-   float: left;
-   margin-left: 100px;
-}
-
-.port article:first-child {
-	margin-left: 0;
 }
