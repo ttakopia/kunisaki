@@ -1,45 +1,9 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <%= link_to '新しいイベントを登録する', new_event_path, class: "btn btn-primary" %>
+  <%= link_to 'ユーザ情報を変更する', edit_user_registration_path, class: "btn btn-default" %>
+</p>
+<h3>近日開催</h3>
+<%= render partial: "index_event", locals: {events: @upcomings} %>
 
-<h1>Listing Events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Opendate</th>
-      <th> opendate memo</th>
-      <th>Postal</th>
-      <th>Address</th>
-      <th>Address embed</th>
-      <th>Fee</th>
-      <th>Limit</th>
-      <th>Integer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.user_id %></td>
-        <td><%= event.title %></td>
-        <td><%= event.opendate %></td>
-        <td><%= event. opendate_memo %></td>
-        <td><%= event.postal %></td>
-        <td><%= event.address %></td>
-        <td><%= event.address_embed %></td>
-        <td><%= event.fee %></td>
-        <td><%= event.limit %></td>
-        <td><%= event.integer %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
+<h3>開催済み</h3>
+<%= render partial: "index_event", locals: {events: @ends} %>

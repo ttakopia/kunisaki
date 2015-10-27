@@ -25,8 +25,12 @@ Rails.application.routes.draw do
   get '/blog', to: 'arts#index'
   get '/picture', to: 'pictures#index'
   get '/me', to: 'pages#me'
+  get '/event', to: 'events#index'
   get 'events/:id/picture/:name' => 'events#show_picture',
        as: 'events_picture'
+  get 'events_by/:id' => 'events#index_by_user', as: 'events_by'
+  get 'events_pasts'  => 'events#pasts', as: 'events_pasts'
+  get 'events/:id/dup' => 'events#duplicate', as: 'dup_event'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

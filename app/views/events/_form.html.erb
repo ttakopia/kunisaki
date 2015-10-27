@@ -1,7 +1,7 @@
-<%= form_for(@event) do |f| %>
+<% f = @f %>
   <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+    <div id="error_explanation" class="alert alert-warning">
+      <p><%= pluralize(@event.errors.count, "error") %>個のエラー:</p>
 
       <ul>
       <% @event.errors.full_messages.each do |message| %>
@@ -11,49 +11,109 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :opendate %>
+    <%= f.date_field :opendate, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :opendate %><br>
-    <%= f.date_select :opendate %>
+  <div class="form-group">
+    <%= f.label :opendate_memo %>
+    <%= f.text_field :opendate_memo, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :opendate_memo %><br>
-    <%= f.text_field :opendate_memo %>
+  <div class="form-group">
+    <%= f.label :address_title %>
+    <%= f.text_field :address_title, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :postal %><br>
-    <%= f.text_field :postal %>
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+  <div class="form-group">
+    <%= f.label :postal %>
+    <%= f.text_field :postal, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :address_embed %><br>
-    <%= f.text_field :address_embed %>
+  <div class="form-group">
+    <%= f.label :address_embed %>
+    <%= f.text_field :address_embed, class: "form-control" %>
+    <small>サイズ、形式？</small>
   </div>
-  <div class="field">
-    <%= f.label :fee %><br>
-    <%= f.number_field :fee %>
+  <div class="form-group">
+    <%= f.label :fee %>
+    <%= f.number_field :fee, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :limit %><br>
-    <%= f.text_field :limit %>
+  <div class="form-group">
+    <%= f.label :fee_memo %>
+    <%= f.text_field :fee_memo, class: "form-control" %>
   </div>
-  
+  <div class="form-group">
+    <%= f.label :limit %>
+    <%= f.number_field :limit, class: "form-control" %>
+    <small>定員なしの場合、0に設定してください。</small>
+  </div>
+  <div class="form-group">
+    <%= f.label :desc_short %>
+    <%= f.text_area :desc_short, class: "form-control" %>
+    <small>80文字程度推奨。 <span id="n_desc_short">0</span></small>
+    <script>
+      $("#event_desc_short").keyup(function(e){
+        $("#n_desc_short").text($(e.target).val().length);
+      });
+      $("#n_desc_short").text($(e.target).val().length);
+    </script>
+  </div>
+  <div class="form-group">
+    <%= f.label :desc_long %>
+    <%= f.text_area :desc_long, rows: 10, class: "form-control" %>
+    <small>500~1000文字程度推奨。 <span id="n_desc_long">0</span></small>
+    <script>
+      $("#event_desc_long").keyup(function(e){
+        $("#n_desc_long").text($(e.target).val().length);
+      });
+      $("#n_desc_long").text($(e.target).val().length);
+    </script>
+  </div>
+  <div class="form-group">
+    <%= f.label :picture_main %>
+    <%= f.file_field :picture_main, class: "form-control" %>
+    <small>幅600px程度</small>
+  </div>
   <div class="form-group">
     <%= f.label :picture_1 %>
     <%= f.file_field :picture_1, class: "form-control" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :picture_2 %>
+    <%= f.file_field :picture_2, class: "form-control" %>
   </div>
-<% end %>
+  <div class="form-group">
+    <%= f.label :picture_3 %>
+    <%= f.file_field :picture_3, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :url %>
+    <%= f.text_field :url, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :url_facebook %>
+    <%= f.text_field :url_facebook, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :url_twitter %>
+    <%= f.text_field :url_twitter, class: "form-control" %>
+  </div>
+  <div class="checkbox">
+    <label>
+      <%= f.check_box :visible %>公開する
+    </label>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_id, "主催者" %>
+    <%= @event.user.name %>
+    <%= f.hidden_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit nil,class: "btn btn-primary" %>
+  </div>

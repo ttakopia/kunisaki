@@ -14,136 +14,140 @@
 ActiveRecord::Schema.define(version: 20151018131109) do
 
   create_table "admin_users", force: :cascade do |t|
-    t.string   "email",               default: "", null: false
-    t.string   "encrypted_password",  default: "", null: false
+    t.string   "email",               limit: 255, default: "", null: false
+    t.string   "encrypted_password",  limit: 255, default: "", null: false
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",       default: 0,  null: false
+    t.integer  "sign_in_count",       limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.string   "current_sign_in_ip",  limit: 255
+    t.string   "last_sign_in_ip",     limit: 255
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
 
   create_table "arts", force: :cascade do |t|
-    t.string   "title"
-    t.string   "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title",      limit: 255
+    t.string   "body",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "assets", force: :cascade do |t|
-    t.integer  "picture_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
+    t.integer  "picture_id",         limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
   end
 
-  add_index "assets", ["picture_id"], name: "index_assets_on_picture_id"
+  add_index "assets", ["picture_id"], name: "index_assets_on_picture_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "picture_id"
-    t.string   "commenter"
-    t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "picture_id", limit: 4
+    t.string   "commenter",  limit: 255
+    t.text     "body",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
-  add_index "comments", ["picture_id"], name: "index_comments_on_picture_id"
+  add_index "comments", ["picture_id"], name: "index_comments_on_picture_id", using: :btree
 
   create_table "destroys", force: :cascade do |t|
-    t.string   "garary"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "garary",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "title"
+    t.integer  "user_id",       limit: 4
+    t.string   "title",         limit: 255
     t.date     "opendate"
-    t.string   "opendate_memo"
-    t.string   "postal"
-    t.string   "address"
-    t.string   "address_embed"
-    t.integer  "fee"
-    t.string   "limit"
-    t.string   "desc_short"
-    t.text     "desc_long"
-    t.binary   "picture_main"
-    t.binary   "picture_1"
-    t.binary   "picture_2"
-    t.binary   "picture_3"
-    t.string   "url"
-    t.string   "url_facebook"
-    t.string   "url_twitter"
+    t.string   "opendate_memo", limit: 255
+    t.string   "postal",        limit: 255
+    t.string   "address",       limit: 255
+    t.string   "address_embed", limit: 255
+    t.integer  "fee",           limit: 4
+    t.string   "limit",         limit: 255
+    t.string   "desc_short",    limit: 255
+    t.text     "desc_long",     limit: 65535
+    t.binary   "picture_main",  limit: 16777215
+    t.binary   "picture_1",     limit: 16777215
+    t.binary   "picture_2",     limit: 16777215
+    t.binary   "picture_3",     limit: 16777215
+    t.string   "url",           limit: 255
+    t.string   "url_facebook",  limit: 255
+    t.string   "url_twitter",   limit: 255
     t.boolean  "visible"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "address_title", limit: 255
+    t.string   "fee_memo",      limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "pictures", force: :cascade do |t|
-    t.string   "name"
-    t.string   "content"
-    t.string   "title"
-    t.string   "description"
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.string   "name",          limit: 255
+    t.string   "content",       limit: 255
+    t.string   "title",         limit: 255
+    t.string   "description",   limit: 255
+    t.string   "address",       limit: 255
+    t.float    "latitude",      limit: 24
+    t.float    "longitude",     limit: 24
     t.boolean  "gmaps"
-    t.string   "access"
-    t.string   "worktime"
-    t.string   "rest"
-    t.string   "fee"
-    t.string   "credit"
-    t.string   "parking"
-    t.string   "parkingnumber"
-    t.string   "parkingfee"
-    t.string   "phonenumber"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "access",        limit: 255
+    t.string   "worktime",      limit: 255
+    t.string   "rest",          limit: 255
+    t.string   "fee",           limit: 255
+    t.string   "credit",        limit: 255
+    t.string   "parking",       limit: 255
+    t.string   "parkingnumber", limit: 255
+    t.string   "parkingfee",    limit: 255
+    t.string   "phonenumber",   limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "reports", force: :cascade do |t|
-    t.integer  "event_id"
-    t.string   "short_desc"
-    t.text     "long_desc"
-    t.binary   "picture_1"
-    t.binary   "picture_2"
-    t.binary   "picture_3"
+    t.integer  "event_id",   limit: 4
+    t.string   "short_desc", limit: 255
+    t.text     "long_desc",  limit: 65535
+    t.binary   "picture_1",  limit: 16777215
+    t.binary   "picture_2",  limit: 16777215
+    t.binary   "picture_3",  limit: 16777215
     t.boolean  "visible"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string   "email",                  limit: 255,   default: "", null: false
+    t.string   "encrypted_password",     limit: 255,   default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.integer  "picture_id"
-    t.string   "commenter"
-    t.text     "body"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "uid"
-    t.string   "provider"
-    t.string   "name",                   default: "", null: false
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.integer  "picture_id",             limit: 4
+    t.string   "commenter",              limit: 255
+    t.text     "body",                   limit: 65535
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "uid",                    limit: 255
+    t.string   "provider",               limit: 255
+    t.string   "name",                   limit: 255,   default: "", null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["picture_id"], name: "index_users_on_picture_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["picture_id"], name: "index_users_on_picture_id", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "assets", "pictures"
+  add_foreign_key "comments", "pictures"
 end

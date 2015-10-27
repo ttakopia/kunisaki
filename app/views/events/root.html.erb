@@ -1,0 +1,35 @@
+<div class="row">
+  <% if @events.empty? %>
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body text-center">
+          開催予定のイベントはありません。
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <% @events.each do |event| %>
+      <%= render partial: 'event', locals: {event: event} %>
+    <% end %>
+  <% end %>
+</div>
+<div class="row">
+  <div class="col-md-12 text-right">
+    <%= link_to '開催済み', events_pasts_path, class: 'btn btn-default' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h2>このサイトについて</h2>
+    <p>「LM Events」では、シンプルなイベント告知ページを作ることができます。</p>
+    <p>SNS等でのイベント告知のランディングページとしての利用を想定しています。
+      目的・ジャンルを問わず、様々なタイプのイベントの告知にお使い頂けます。
+      細かい規約は設けていませんが、良識のある利用をお願い致します（不適切と判断した投稿は予告なく削除することがあります）。</p>
+  </div>
+<div class="col-md-6">
+  <h2>このアプリについて</h2>
+  <p>Ruby on Railsの勉強会で作った習作をそのまま配備しています。
+    ソースコードは<a href="https://github.com/yosei/events.lmlab.net">GitHubで公開</a>していますので、
+    自由にフォークして独自のサイト作りに役立てて頂いても構いません。機能追加のリクエストや不具合報告も歓迎します。</p>
+</div>
+</div>

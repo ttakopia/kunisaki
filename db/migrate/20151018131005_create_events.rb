@@ -19,7 +19,10 @@ class CreateEvents < ActiveRecord::Migration
       t.string :url
       t.string :url_facebook
       t.string :url_twitter
+
       t.boolean :visible
+      t.string  :address_title
+      t.string  :fee_memo
 
       t.timestamps null: false
     end
