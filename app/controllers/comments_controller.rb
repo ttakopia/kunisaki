@@ -1,20 +1,20 @@
 class CommentsController < ApplicationController
   def create
-    @picture = Picture.find(params[:picture_id])
-    @comment = @picture.comments.new(comment_params)
+    @event = Event.find(params[:event_id])
+    @comment = @event.comments.new(comment_params)
     if @comment.save
       flash[:notice] = "作成できました！"
-      redirect_to picture_path(@picture)
+      redirect_to event_path(@event)
     else
-      render :template => "pictures/show"
+      render :template => "events/show"
     end
   end
 
   def destroy
-    @picture = Picture.find(params[:picture_id])
-    @comment = @picture.comments.find(params[:id])
+    @event = Event.find(params[:event_id])
+    @comment = @event.comments.find(params[:id])
     @comment.destroy
-    redirect_to :pictures
+    redirect_to :events
   end
 
   private

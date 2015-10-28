@@ -61,6 +61,8 @@
   </div>
 </div>
 <hr/>
+<%= render "comments/form" %>
+
 <% if user_signed_in? && current_user.id == @event.user_id %>
 <div class="row">
   <div class="col-md-12">

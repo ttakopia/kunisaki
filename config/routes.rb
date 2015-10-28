@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources :pictures do
     resources :comments
   end
+
+  resources :events do
+    resources :comments
+  end
   
   resources :pictures
   resources :locs
@@ -19,7 +23,7 @@ Rails.application.routes.draw do
      resources :assets
    end
 
-  root :to => 'pages#about'
+  root :to => 'events#index'
   
   get '/about', to: 'pages#about'
   get '/blog', to: 'arts#index'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028043322) do
+ActiveRecord::Schema.define(version: 20151028073309) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",               limit: 255, default: "", null: false
@@ -54,8 +54,10 @@ ActiveRecord::Schema.define(version: 20151028043322) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.string   "user_id",    limit: 255
+    t.integer  "event_id",   limit: 4
   end
 
+  add_index "comments", ["event_id"], name: "index_comments_on_event_id", using: :btree
   add_index "comments", ["picture_id"], name: "index_comments_on_picture_id", using: :btree
 
   create_table "destroys", force: :cascade do |t|
@@ -150,5 +152,6 @@ ActiveRecord::Schema.define(version: 20151028043322) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "assets", "pictures"
+  add_foreign_key "comments", "events"
   add_foreign_key "comments", "pictures"
 end

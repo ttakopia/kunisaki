@@ -30,6 +30,8 @@ class EventsController < ApplicationController
 
   def show
     respond_with(@event)
+    @event = Event.find(params[:id])
+    @comment = Event.find(params[:id]).comments.build
   end
 
   def new
@@ -102,7 +104,8 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      p = params.require(:event).permit(:user_id, :title, :opendate, :opendate_memo, :address_title, :address, :postal, :address_embed, :fee, :fee_memo, :limit, :desc_short, :desc_long, :picture_main, :picture_1, :picture_2, :picture_3, :url, :url_facebook, :url_twitter, :visible)
+      p = params.require(:event).permit(:user_id, :title, :opendate, :opendate_memo, :address_title, :address, :postal, :address_embed, :fee, :fee_memo, :limit, :desc_short, :desc_long, :picture_main, :picture_1, :picture_2, :picture_3, :url, :url_facebook, :url_twitter, :visible,
+        :commenter, :body, comments_attributes: [:commenter, :body])
       [:picture_main,:picture_1,:picture_2,:picture_3].each do |k|
         p[k] = adjust_image(p[k]) if p[k]
       end

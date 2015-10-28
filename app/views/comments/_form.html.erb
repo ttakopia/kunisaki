@@ -1,28 +1,16 @@
-<% if @comment.errors.any? %>
-<h3>エラーが<%= (@comment.errors.count) %>件あります</h3>
-  <% @comment.errors.full_messages.each do |msg| %>
-  <ul>
-    <li><%= msg %></li>
-  </ul>
-  <% end %>
-<% end %>
-
-<h4><コメント></h4>
-<ol>
-
-
-<% @picture.comments.each do |comment| %>
+<% @event.comments.each do |comment| %>
   <li><%= comment.created_at.present? ? comment.created_at.strftime("%Y/%m月/%d日(#{%w(日 月 火 水 木 金 土 日)[Time.now.wday]}) %T ") : comment.created_at %>
   <br><%= simple_format(comment.body) %>
   </li>
-<%= link_to "Destroy", [@picture, comment], :confirm => 'Are you sure?', :method => :delete %> 
+<%= link_to "Destroy", [@event, comment], :confirm => 'Are you sure?', :method => :delete %> 
 <% end %>
+
 </ol>
 
 
 <% if user_signed_in? %>
 <h4><コメント記入></h4>
-<%= form_for([@picture, @picture.comments.build]) do |f| %>
+<%= form_for([@event, @event.comments.build]) do |f| %>
   <p>
     <%= f.label :body %><br />
     <%= f.text_area :body, :cols => 50, :rows => 10 %>
