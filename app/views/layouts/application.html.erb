@@ -41,8 +41,10 @@
   <body>
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
+       <% if user_signed_in? %>
 　　<p>ようこそ <%= current_user.name %> さん
 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete  %>
+    <% end %>
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -56,8 +58,6 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "グルメ", "/picture"  %></li>
             <li><%= link_to "イベント", "/event"  %></li>
-            <li><%= link_to "観光スポット", "/picture"  %></li>
-            <li><%= link_to "地元情報", "/picture"  %></li>
             <li><%= link_to "管理人の紹介", "/me"  %></li>
             <li><%= link_to "会員登録", "/users/sign_up" %></li>
           </ul>
@@ -72,9 +72,11 @@
           <%= yield %>
         </div>
 
+<%        
+=begin
+%>
         <div class="col-lg-3">
           <div class="well sidebar-nav">
-
             <h3>Sidebar</h3>
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
@@ -85,6 +87,9 @@
 
           </div><!--/.well -->
         </div><!--/span-->
+<%        
+=end
+%>
       </div><!--/row-->
 
       <footer>

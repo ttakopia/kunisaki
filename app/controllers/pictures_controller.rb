@@ -21,7 +21,7 @@ class PicturesController < ApplicationController
   # GET /pictures/new
   def new
     @picture = Picture.new
-    @picture.assets.build
+    3.times { @picture.assets.build }
   end
 
   # GET /pictures/1/edit
