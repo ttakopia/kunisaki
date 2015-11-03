@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :reports
   resources :events
   get 'map/index'
-  devise_for :users,controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  
   resources :users
   devise_for :admin_users
   mount RailsAdmin::Engine => '/admin_user', as: 'rails_admin'
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
      resources :assets
    end
 
-  root :to => 'events#index'
+  root :to => 'events#root'
   
   get '/about', to: 'pages#about'
   get '/blog', to: 'arts#index'

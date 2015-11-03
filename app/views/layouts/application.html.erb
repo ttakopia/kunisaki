@@ -53,7 +53,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="/event">国東半島<strong>"来ちょくれ倶楽部"</strong></a>
+        <%= link_to "<span class='glyphicon glyphicon-calendar'></span> 国東半島来ちょくれ倶楽部".html_safe, root_path, class: "navbar-brand" %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "イベント", "/event"  %></li>
