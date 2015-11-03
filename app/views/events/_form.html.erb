@@ -12,49 +12,49 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :title %>
+    <%= f.label :タイトル %>
     <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :opendate %>
+    <%= f.label :開催日 %>
     <%= f.date_field :opendate, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :opendate_memo %>
+    <%= f.label :開催日のメモ %>
     <%= f.text_field :opendate_memo, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :address_title %>
+    <%= f.label :開催場所 %>
     <%= f.text_field :address_title, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :address %>
+    <%= f.label :住所 %>
     <%= f.text_field :address, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :postal %>
+    <%= f.label :郵便番号 %>
     <%= f.text_field :postal, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :address_embed %>
+    <%= f.label :地図URL %>
     <%= f.text_field :address_embed, class: "form-control" %>
     <small>サイズ、形式？</small>
   </div>
   <div class="form-group">
-    <%= f.label :fee %>
+    <%= f.label :参加費 %>
     <%= f.number_field :fee, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :fee_memo %>
+    <%= f.label :参加費メモ %>
     <%= f.text_field :fee_memo, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :limit %>
+    <%= f.label :収容人数 %>
     <%= f.number_field :limit, class: "form-control" %>
     <small>定員なしの場合、0に設定してください。</small>
   </div>
   <div class="form-group">
-    <%= f.label :desc_short %>
+    <%= f.label :概要 %>
     <%= f.text_area :desc_short, class: "form-control" %>
     <small>80文字程度推奨。 <span id="n_desc_short">0</span></small>
     <script>
@@ -65,7 +65,7 @@
     </script>
   </div>
   <div class="form-group">
-    <%= f.label :desc_long %>
+    <%= f.label :詳細 %>
     <%= f.text_area :desc_long, rows: 10, class: "form-control" %>
     <small>500~1000文字程度推奨。 <span id="n_desc_long">0</span></small>
     <script>
@@ -76,32 +76,32 @@
     </script>
   </div>
   <div class="form-group">
-    <%= f.label :picture_main %>
+    <%= f.label :メイン写真 %>
     <%= f.file_field :picture_main, class: "form-control" %>
     <small>幅600px程度</small>
   </div>
   <div class="form-group">
-    <%= f.label :picture_1 %>
+    <%= f.label :写真１ %>
     <%= f.file_field :picture_1, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :picture_2 %>
+    <%= f.label :写真２ %>
     <%= f.file_field :picture_2, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :picture_3 %>
+    <%= f.label :写真３ %>
     <%= f.file_field :picture_3, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :url %>
+    <%= f.label :URL %>
     <%= f.text_field :url, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :url_facebook %>
+    <%= f.label :Facebook %>
     <%= f.text_field :url_facebook, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :url_twitter %>
+    <%= f.label :Twitter %>
     <%= f.text_field :url_twitter, class: "form-control" %>
   </div>
   <div class="checkbox">

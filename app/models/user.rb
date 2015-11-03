@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  has_many :events
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
@@ -17,7 +18,6 @@ class User < ActiveRecord::Base
         password: Devise.friendly_token[0, 20]
       )
     end
-
     user
   end
 

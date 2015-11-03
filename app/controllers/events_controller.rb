@@ -11,8 +11,8 @@ class EventsController < ApplicationController
 
   def index
     # Use for user home
-    @upcomings = Event.where("opendate >= ? AND user_id = ?",Date.today.to_s,current_user.id).order("opendate ASC")
-    @ends = Event.where("opendate < ? AND user_id = ?",Date.today.to_s,current_user.id).order("opendate DESC")
+    @upcomings = Event.where("opendate >= ? AND user_id = ? AND visible = true",Date.today.to_s,current_user.id).order("opendate ASC")
+    @ends = Event.where("opendate < ? AND user_id = ? AND visible = true",Date.today.to_s,current_user.id).order("opendate DESC")
     respond_with(@upcomings,@ends)
   end
 
@@ -30,7 +30,6 @@ class EventsController < ApplicationController
 
   def show
     respond_with(@event)
-    @event = Event.find(params[:id])
     @comment = Event.find(params[:id]).comments.build
   end
 
@@ -51,7 +50,7 @@ class EventsController < ApplicationController
       raise ActionController::RoutingError.new('This event is not yours.')
     end
     #@event.id = nil
-    @event.visible = false # Always invisible after duplication.
+    @event.visible = true # Always invisible after duplication.
   end
 
   def create

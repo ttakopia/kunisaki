@@ -20,7 +20,7 @@
       <td><%= event.address_title %></td>
       <td><%= event.title %></td>
       <td><%= event.fee %></td>
-      <td><%= event.limit %></td>
+      <td><%= event.limit %><%= event.visible %></td>
       <td><%= link_to '閲覧', event, class: "btn btn-default" %>
       <%= link_to '編集', edit_event_path(event), class: "btn btn-default" %>
       <%= link_to '削除', event, method: :delete, data: { confirm: 'よろしいですか?' }, class: "btn btn-danger" %>
