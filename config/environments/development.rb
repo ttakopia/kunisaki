@@ -39,7 +39,4 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-   Devise.setup do |config|devise@example.com
-    config.omniauth :facebook, '732516840179685', 'bac45156853267c8d64fae10c1bbee2e', :scope => 'email,user_birthday,name', :display => 'popup'
-  end
 end
